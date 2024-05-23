@@ -39,9 +39,10 @@ ipv_type = "ipv4"
 domain_blacklist = ["epg.pw"]
 url_keywords_blacklist = []
 open_subscribe = True
-subscribe_urls = [
-    "http://tonkiang.us/hotellist.html?s=113.71.148.79:5555",
-    
+subscribe_urls = [ 
+     "https://m3u.ibert.me/txt/fmml_dv6.txt",
+    "https://m3u.ibert.me/txt/o_cn.txt",
+    "https://m3u.ibert.me/txt/j_iptv.txt",
 ]
 open_multicast = True
 region_list = ["all"]
