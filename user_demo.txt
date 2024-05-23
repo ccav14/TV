@@ -57,13 +57,18 @@ CCTV5+,http://124.115.205.101:8888/newlive/live/hls/7/live.m3u8
 延边卫视,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226516/index.m3u8
 
 广东频道,#genre#
-珠海,http://113.86.204.95:9999/udp/239.77.0.155:5146
+广东卫视,http://219.135.208.218:8083/tsfile/live/0016_1.m3u8?key=txiptv&playlive=1&authid=0大湾区卫视,http://106.52.31.219:9901http://112.89.121.21:80/PLTV/88888973/224/3221225724/10000100000000060000000000334167_0.smil/01.m3u8?fmt=ts2hls,504,01.m3u8,0,2441,0,0&accountinfo=Wti4h1vlszvIgmJ2Rn+JT30YqhIlb959YafU65xwPQuFI6KpBBcFipVQNWSpm9U4cljBwkAKGt2Lq1W8IgjWjgzcX+uhk0/ut3dCvLMCowkQyJ1/QCjaDX1hkMu/sXTY:20181110091937,END&GuardEncType=2
 广东珠江,http://219.135.208.218:8083/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
-广东珠江,http://mom.coms.hk:9901/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0
 广东体育,http://116.21.122.2:4433/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0
-广东体育,http://219.135.208.218:8083/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0
+广东影视,http://113.101.160.144:8888/udp/239.77.0.11:5146
+广州综合,http://www.namewee.xyz/gudou.php?id=gzhounewsHD
+广州新闻,http://116.21.122.2:4433/tsfile/live/1002_1.m3u8?key=txiptv&playlive=0&authid=0
+广州竞赛,http://www.namewee.xyz/gudou.php?id=gzfilmsgaoqing
+广州影视,http://116.21.122.2:4433/tsfile/live/1003_1.m3u8?key=txiptv&playlive=0&authid=0
 
 港澳频道,#genre#
 翡翠台,https://pull-f5-spe.ixigua.com/yeslivetv.com/291403ea-fabd-4dc1-bdfa-f14ebe74411e/index.m3u8
 翡翠台,http://67.211.73.118:9901http://iptv.tvfix.org/hls/jade2.m3u8
-
+凤凰中文,http://125.210.152.18:9090/live/FHZW_1200.m3u8
+凤凰资讯,http://67.211.73.118:9901http://iptv.tvfix.org/hls/fhzx.m3u8
+凤凰香港,http://223.110.245.136/PLTV/3/224/3221226975/index.m3u8
