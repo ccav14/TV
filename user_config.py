@@ -25,6 +25,7 @@ favorite_list = [
     "大湾区卫视",
     "浙江卫视",
     "湖南卫视",
+     "东方卫视",
     "翡翠台",
 ]
 open_online_search = False
