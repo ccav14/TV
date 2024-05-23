@@ -10,15 +10,7 @@ favorite_list = [
     "CCTV-6",
     "CCTV-7",
     "CCTV-8",
-    "CCTV-9",
-    "CCTV-10",
-    "CCTV-11",
-    "CCTV-12",
      "CCTV-13",
-    "CCTV-14",
-    "CCTV-15",
-    "CCTV-16",
-    "CCTV-17",
      "广东珠江",
     "广东体育",
     "广东卫视",
@@ -26,9 +18,9 @@ favorite_list = [
     "浙江卫视",
     "湖南卫视",
      "东方卫视",
-    "翡翠台",
+   
 ]
-open_online_search = False
+open_online_search = True
 favorite_page_num = 5
 default_page_num = 3
 urls_limit = 15
@@ -46,4 +38,4 @@ subscribe_urls = [
     "https://m3u.ibert.me/txt/j_iptv.txt",
 ]
 open_multicast = True
-region_list = ["all"]
+region_list = ["广东"]
