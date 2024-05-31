@@ -149,8 +149,8 @@ CCTV5+,http://113.109.15.131:4433/tsfile/live/0016_1.m3u8?key=txiptv&playlive=0&
 兵团卫视,http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226214/index.m3u8
 三沙卫视,http://iptvrr.sh.chinamobile.com:6060/cms001/ch00000090990000001185/index.m3u8
 三沙卫视,https://pullsstv90080111.ssws.tv/live/SSTV20220729.m3u8
-延边卫视,http://live.ybtvyun.com/video/s10016-6f0dfd97912f/index.m3u8
 延边卫视,http://live.ybtvyun.com/video/s10016-7e5f23de35df/index.m3u8
+延边卫视,http://live.ybtvyun.com/video/s10016-6f0dfd97912f/index.m3u8
 
 广东频道,#genre#
 广东卫视,http://113.109.15.131:4433/tsfile/live/0125_1.m3u8?key=txiptv&playlive=1&authid=0
