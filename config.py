@@ -10,7 +10,7 @@ favorite_list = [
     "广东卫视",
     "大湾区卫视",
     "浙江卫视",
-    "湖南卫视"，
+    "湖南卫视",
     "翡翠台",
 ]
 open_online_search = True
