@@ -36,6 +36,7 @@ subscribe_urls = [
      "https://m3u.ibert.me/txt/fmml_dv6.txt",
     "https://m3u.ibert.me/txt/o_cn.txt",
     "https://m3u.ibert.me/txt/j_iptv.txt",
+     "https://raw.githubusercontent.com/frxz751113/IPTVzb1/main/结果.txt",
 ]
 open_multicast = True
 region_list = ["广东"]
