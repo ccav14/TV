@@ -39,4 +39,4 @@ subscribe_urls = [
      "https://raw.githubusercontent.com/frxz751113/IPTVzb1/main/结果.txt",
 ]
 open_multicast = True
-region_list = ["广东"]
+region_list = ["all"]
