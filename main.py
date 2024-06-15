@@ -35,7 +35,6 @@ class UpdateSource:
 
     def __init__(self):
         self.run_ui = False
-        self.thread = None
         self.tasks = []
         self.channel_items = get_channel_items()
         self.results = {}
@@ -231,11 +230,10 @@ class UpdateSource:
             update_file(user_log_file, "result_new.log")
             print(f"Update completed! Please check the {user_final_file} file!")
             self.update_progress(f"更新完成, 请检查{user_final_file}文件", 100, True)
-            self.stop()
         except asyncio.exceptions.CancelledError:
             print("Update cancelled!")
 
-    def start(self, callback=None):
+    async def start(self, callback=None):
         def default_callback(self, *args, **kwargs):
             pass
 
@@ -247,27 +245,16 @@ class UpdateSource:
             format="%(message)s",
             level=logging.INFO,
         )
-
-        def run_loop():
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            try:
-                loop.run_until_complete(self.main())
-            finally:
-                loop.close()
-
-        self.thread = threading.Thread(target=run_loop, daemon=True)
-        self.thread.start()
-        if not self.run_ui:
-            self.thread.join()
+        await self.main()
 
     def stop(self):
         for task in self.tasks:
             task.cancel()
         self.tasks = []
         asyncio.get_event_loop().stop()
+        self.pbar.close()
 
 
 if __name__ == "__main__":
     update_source = UpdateSource()
-    update_source.start()
+    asyncio.run(update_source.start())
