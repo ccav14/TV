@@ -20,6 +20,9 @@ import os
 from tqdm import tqdm
 from tqdm.asyncio import tqdm_asyncio
 from time import time
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
 
 config_path = resource_path("user_config.py")
 default_config_path = resource_path("config.py")
@@ -37,11 +40,17 @@ class UpdateSource:
         self.tasks = []
         self.channel_items = get_channel_items()
         self.results = {}
-        self.semaphore = asyncio.Semaphore(10)
         self.channel_data = {}
         self.pbar = None
         self.total = 0
         self.start_time = None
+
+    @app.route("/")
+    def show_result():
+        user_final_file = getattr(config, "final_file", "result.txt")
+        with open(user_final_file, "r", encoding="utf-8") as file:
+            content = file.read()
+        return render_template_string("<pre>{{ content }}</pre>", content=content)
 
     def check_info_data(self, cate, name):
         if self.channel_data.get(cate) is None:
@@ -89,21 +98,41 @@ class UpdateSource:
     def process_channel(self):
         for cate, channel_obj in self.channel_items.items():
             for name, old_urls in channel_obj.items():
-                format_name = format_channel_name(name)
+                formatName = format_channel_name(name)
                 if config.open_subscribe:
                     self.append_data_to_info_data(
-                        cate, name, self.results["open_subscribe"].get(format_name, [])
+                        cate, name, self.results["open_subscribe"].get(formatName, [])
+                    )
+                    print(
+                        name,
+                        "subscribe num:",
+                        len(self.results["open_subscribe"].get(formatName, [])),
                     )
                 if config.open_multicast:
                     self.append_data_to_info_data(
-                        cate, name, self.results["open_multicast"].get(format_name, [])
+                        cate, name, self.results["open_multicast"].get(formatName, [])
+                    )
+                    print(
+                        name,
+                        "multicast num:",
+                        len(self.results["open_multicast"].get(formatName, [])),
                     )
                 if config.open_online_search:
                     self.append_data_to_info_data(
                         cate,
                         name,
-                        self.results["open_online_search"].get(format_name, []),
+                        self.results["open_online_search"].get(formatName, []),
                     )
+                    print(
+                        name,
+                        "online search num:",
+                        len(self.results["open_online_search"].get(formatName, [])),
+                    )
+                print(
+                    name,
+                    "total num:",
+                    len(self.channel_data.get(cate, {}).get(name, [])),
+                )
                 if len(self.channel_data.get(cate, {}).get(name, [])) == 0:
                     self.append_data_to_info_data(
                         cate, name, [(url, None, None) for url in old_urls]
@@ -118,6 +147,7 @@ class UpdateSource:
                 info_list = self.channel_data.get(cate, {}).get(name, [])
                 try:
                     channel_urls = get_total_urls_from_info_list(info_list)
+                    print("write:", cate, name, "num:", len(channel_urls))
                     update_channel_urls_txt(cate, name, channel_urls)
                 finally:
                     self.pbar.update()
@@ -226,5 +256,11 @@ class UpdateSource:
 
 
 if __name__ == "__main__":
-    update_source = UpdateSource()
-    asyncio.run(update_source.start())
+    if config.open_update:
+        update_source = UpdateSource()
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete(update_source.start())
+    github_actions = os.environ.get("GITHUB_ACTIONS")
+    if not github_actions:
+        app.run(host="0.0.0.0", port=80)
