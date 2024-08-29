@@ -1,4 +1,7 @@
-# Television channel menu customization and live source interface update tool
+<div align="center">
+  <img src="./static/images/logo.png" alt="logo"/>
+  <h1 align="center">Live TV source update tool</h1>
+</div>
 
 Customize channel menus and automatically obtain and update the latest live source interfaces based on template files, verify, and generate usable channel interface files.
 
@@ -25,7 +28,7 @@ Customize channel menus and automatically obtain and update the latest live sour
 ## Features
 
 - Custom templates for creating desired channel categories and order
-- Supports multiple source acquisition methods: online search, multicast source, hotel source, subscription source
+- Supports multiple source acquisition methods: multicast source, hotel source, subscription source, online search
 - Interface speed testing and verification, with priority on response time and resolution, filtering out ineffective interfaces
 - Scheduled execution at 6:00 AM and 18:00 PM Beijing time daily
 - Supports various execution methods: workflows, command line, GUI software, Docker
@@ -99,8 +102,17 @@ Fork this project and enable workflow updates
 
 If you don't want to bother, and my configuration just meets your needs, you can use the following links:
 
-- Interface source: https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/result.txt
-- Data source: https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/source.json
+- Interface source:
+
+```bash
+  https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/output/result.m3u
+```
+
+- Data source:
+
+```bash
+  https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/source.json
+```
 
 ## Changelog
 
@@ -112,4 +124,4 @@ If you don't want to bother, and my configuration just meets your needs, you can
 
 ## Appreciate
 
-![image](./docs/images/appreciate.jpg)
+![image](./static/images/appreciate.jpg)

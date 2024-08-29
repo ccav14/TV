@@ -1,4 +1,7 @@
-# 电视频道菜单自定义与直播源接口更新工具
+<div align="center">
+  <img src="./static/images/logo.png" alt="logo"/>
+  <h1 align="center">电视直播源更新工具</h1>
+</div>
 
 自定义频道菜单，根据模板文件的直播源接口，自动获取并更新最新的直播源接口，校验并生成可用的频道接口文件
 
@@ -25,7 +28,7 @@
 ## 特点
 
 - 自定义模板，生成您想要的频道分类与频道顺序
-- 支持多种获取源方式：线上检索、组播源、酒店源、订阅源
+- 支持多种获取源方式：组播源、酒店源、订阅源、线上检索
 - 接口测速验效，响应时间、分辨率优先级，过滤无效接口
 - 定时执行，北京时间每日 6:00 与 18:00 执行更新
 - 支持多种运行方式：工作流、命令行、界面软件、Docker
@@ -99,8 +102,17 @@ Fork 本项目并开启工作流更新
 
 如果您不想折腾，刚好我的配置符合您的需求，可以使用以下链接：
 
-- 接口源：https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/result.txt
-- 数据源：https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/source.json
+- 接口源：
+
+```bash
+  https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/output/result.m3u
+```
+
+- 数据源：
+
+```bash
+  https://ghproxy.net/raw.githubusercontent.com/Guovin/TV/gd/source.json
+```
 
 ## 更新日志
 
@@ -112,4 +124,4 @@ Fork 本项目并开启工作流更新
 
 ## 赞赏
 
-![image](./docs/images/appreciate.jpg)
+![image](./static/images/appreciate.jpg)

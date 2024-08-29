@@ -1,5 +1,30 @@
 # 更新日志（Changelog）
 
+## v1.3.7
+
+### 2024/8/27
+
+- 新增支持 M3U 结果格式转换，支持显示频道图标(open_m3u_result)（Added support for M3U result format conversion, including channel icon display (open_m3u_result)）
+- 新增对于无结果的频道进行额外补充查询（Added additional queries for channels with no results）
+- 增加控制使用 FFmpeg 开关(open_ffmpeg)（Added a switch to control the use of FFmpeg (open_ffmpeg)）
+- 调整默认配置以酒店源模式运行（Adjusted default configuration to run in hotel source mode）
+- 优化测速方法（Optimize Speed Test Method）
+- 修复酒店源 CCTV 类等频道结果匹配异常（Fixed abnormal matching of results for hotel source CCTV channels）
+- 修复组播源、酒店源 driver 运行问题（Fixed issues with multicast source and hotel source driver operation）
+- 修复订阅源更新异常（Fixed subscription source update anomalies）
+
+## v1.3.6
+
+### 2024/8/22
+
+- 新增酒店源更新，支持 Tonkiang、FOFA 两种工作模式（Added hotel source updates, supporting Tonkiang and FOFA working modes）
+- 重构 UI 界面软件，新增帮助-关于、获取频道名称编辑、酒店源相关配置、软件图标（Refactored UI interface software, added Help-About, channel name editing, hotel source related configuration, and software icon）
+- 新增测速日志页面服务，结果链接后添加/log 即可查看（Added a new speed test log page service. To view the results, simply add /log to the link）
+- 移除关注频道相关配置（Removed configuration related to followed channels）
+- 修复 Docker 定时任务未执行问题（Fixed issue with Docker scheduled tasks not executing）
+- 修复使用历史结果时频道数据异常问题（Fixed issue with channel data anomalies when using historical results）
+- 优化 UI 界面软件运行生成配置目录，方便查看与修改（Optimized UI interface software to generate configuration directory for easier viewing and modification）
+
 ## v1.3.5
 
 ### 2024/8/14

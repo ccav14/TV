@@ -19,15 +19,15 @@ def get_fofa_urls_from_region_list():
     """
     Get the FOFA url from region
     """
-    region_list = config.get("Settings", "region_list").split(",")
+    # region_list = config.get("Settings", "hotel_region_list").split(",")
     urls = []
     region_url = getattr(fofa_map, "region_url")
-    if "all" in region_list:
-        urls = [url for url in region_url.values() if url]
-    else:
-        for region in region_list:
-            if region in region_url:
-                urls.append(region_url[region])
+    # if "all" in region_list or "全部" in region_list:
+    urls = [url for url in region_url.values() if url]
+    # else:
+    #     for region in region_list:
+    #         if region in region_url:
+    #             urls.append(region_url[region])
     return urls
 
 
@@ -37,10 +37,10 @@ async def get_channels_by_fofa(callback):
     """
     fofa_urls = get_fofa_urls_from_region_list()
     fofa_urls_len = len(fofa_urls)
-    pbar = tqdm_asyncio(total=fofa_urls_len, desc="Processing multicast")
+    pbar = tqdm_asyncio(total=fofa_urls_len, desc="Processing fofa")
     start_time = time()
     fofa_results = {}
-    callback(f"正在获取组播源更新, 共{fofa_urls_len}个地区", 0)
+    callback(f"正在获取Fofa源更新, 共{fofa_urls_len}个地区", 0)
     proxy = None
     open_proxy = config.getboolean("Settings", "open_proxy")
     open_driver = config.getboolean("Settings", "open_driver")
@@ -83,7 +83,7 @@ async def get_channels_by_fofa(callback):
             pbar.update()
             remain = fofa_urls_len - pbar.n
             callback(
-                f"正在获取组播源更新, 剩余{remain}个地区待获取, 预计剩余时间: {get_pbar_remaining(n=pbar.n, total=pbar.total, start_time=start_time)}",
+                f"正在获取Fofa源更新, 剩余{remain}个地区待获取, 预计剩余时间: {get_pbar_remaining(n=pbar.n, total=pbar.total, start_time=start_time)}",
                 int((pbar.n / fofa_urls_len) * 100),
             )
             return results
@@ -124,9 +124,9 @@ def process_fofa_json_url(url):
                             if item_name and item_url:
                                 total_url = url + item_url
                                 if item_name not in channels:
-                                    channels[item_name] = [total_url]
+                                    channels[item_name] = [(total_url, None, None)]
                                 else:
-                                    channels[item_name].append(total_url)
+                                    channels[item_name].append((total_url, None, None))
                 except Exception as e:
                     # print(f"Error on fofa: {e}")
                     pass

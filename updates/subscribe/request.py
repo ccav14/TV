@@ -12,7 +12,9 @@ from collections import defaultdict
 timeout = 30
 
 
-async def get_channels_by_subscribe_urls(urls=None, multicast=False, callback=None):
+async def get_channels_by_subscribe_urls(
+    urls, multicast=False, retry=True, error_print=True, callback=None
+):
     """
     Get the channels by subscribe urls
     """
@@ -41,13 +43,18 @@ async def get_channels_by_subscribe_urls(urls=None, multicast=False, callback=No
         try:
             response = None
             try:
-                response = retry_func(
-                    lambda: session.get(subscribe_url, timeout=timeout),
-                    name=subscribe_url,
+                response = (
+                    retry_func(
+                        lambda: session.get(subscribe_url, timeout=timeout),
+                        name=subscribe_url,
+                    )
+                    if retry
+                    else session.get(subscribe_url, timeout=timeout)
                 )
             except exceptions.Timeout:
                 print(f"Timeout on subscribe: {subscribe_url}")
             if response:
+                response.encoding = "utf-8"
                 content = response.text
                 lines = content.split("\n")
                 for line in lines:
@@ -74,7 +81,8 @@ async def get_channels_by_subscribe_urls(urls=None, multicast=False, callback=No
                             else:
                                 channels[name] = [value]
         except Exception as e:
-            print(f"Error on {subscribe_url}: {e}")
+            if error_print:
+                print(f"Error on {subscribe_url}: {e}")
         finally:
             pbar.update()
             remain = subscribe_urls_len - pbar.n
